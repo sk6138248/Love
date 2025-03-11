@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Animation for You ❤️</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #ff758c, #ff7eb3, #fad0c4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            flex-direction: column;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+        }
+        .heading {
+            font-size: 40px;
+            color: #fff;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        .message {
+            font-size: 30px;
+            color: #fff;
+            font-weight: bold;
+            background: linear-gradient(135deg, #e91e63, #ff4081);
+            padding: 15px 30px;
+            border-radius: 25px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease-in-out infinite alternate;
+            cursor: pointer;
+        }
+        .click-text {
+            font-size: 16px;
+            color: #fff;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+        .flower {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: radial-gradient(circle, #ff4e50, #fc913a);
+            border-radius: 50%;
+            animation: floatUp 5s linear infinite;
+            opacity: 0.9;
+        }
+        .hearts, .kisses {
+            position: absolute;
+            font-size: 30px;
+            animation: floatUp 4s linear infinite;
+        }
+        .hearts { color: red; }
+        .kisses { color: pink; }
+        
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) scale(0.5); opacity: 1; }
+            100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="heading">Sahil Jamwal Weds Samriti Jamwal 💍❤️</div>
+    <div class="click-text">(Click the message below for a surprise!)</div>
+    <div class="message" onclick="changeMessage()">You are the most beautiful flower in my life ❤️</div>
+    
+    <script>
+        const messages = [
+            "You are my sunshine ☀️",
+            "I love you more than words can say 💕",
+            "Every moment with you is magical ✨",
+            "You make my heart bloom like a flower 🌸",
+            "You are the love of my life ❤️",
+            "Your smile is my favorite thing in the world 😊",
+            "Every day with you is a gift 🎁",
+            "My heart beats faster when I think of you 💓",
+            "You are my dream come true 🌙✨",
+            "Forever isn’t long enough with you 🕰️❤️",
+            "I fall in love with you more every day 😘",
+            "You are the melody to my heart’s song 🎶❤️",
+            "Holding your hand, I feel at home 🤝💕",
+            "You are my happily ever after 🏰💖",
+            "With you, love is an endless adventure 🌍💑"
+        ];
+        
+        function createFlower() {
+            const flower = document.createElement("div");
+            flower.classList.add("flower");
+            flower.style.left = Math.random() * 100 + "vw";
+            flower.style.animationDuration = Math.random() * 3 + 3 + "s";
+            document.body.appendChild(flower);
+            setTimeout(() => flower.remove(), 5000);
+        }
+        
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.classList.add("hearts");
+            heart.innerHTML = "❤️";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 4000);
+        }
+        
+        function createKiss() {
+            const kiss = document.createElement("div");
+            kiss.classList.add("kisses");
+            kiss.innerHTML = "💋";
+            kiss.style.left = Math.random() * 100 + "vw";
+            kiss.style.animationDuration = Math.random() * 3 + 3 + "s";
+            document.body.appendChild(kiss);
+            setTimeout(() => kiss.remove(), 4000);
+        }
+        
+        function changeMessage() {
+            const messageElement = document.querySelector(".message");
+            const randomIndex = Math.floor(Math.random() * messages.length);
+            messageElement.innerText = messages[randomIndex];
+        }
+        
+        setInterval(createFlower, 500);
+        setInterval(createHeart, 700);
+        setInterval(createKiss, 900);
+    </script>
+</body>
+</html>
